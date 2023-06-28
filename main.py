@@ -1,33 +1,24 @@
-# Import
+# İçeri aktarma
 from flask import Flask, render_template,request, redirect
-# Importing the database library
+# Veri tabanı kütüphanesini içeri aktarma
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-# Connecting SQLite
+# SQLite'a bağlanma
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///diary.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# Creating a DB
+# Veri tabanı oluşturma
 db = SQLAlchemy(app )
 
-#Assignment #1. Create a DB table
+# Görev #1. Bir veri tabanı tablosu oluştur
 
 
-
-
-
-
-
-
-
-
-
-# Running the page with content
+# Sayfa içeriğini çalıştırma
 @app.route('/')
 def index():
-    # Displaying the DB objects
-    # Assignment #2. Display the objects from the DB in index.html
+    # DB objelerini göstermek
+    # Görev #2. objeleri veri tabanından index.html'de göster 
     
 
     return render_template('index.html',
@@ -35,20 +26,20 @@ def index():
 
                            )
 
-# Running the page with the card
+# card sayfasını gösterme
 @app.route('/card/<int:id>')
 def card(id):
-    # Assignment #2. Display the right card by its id
+    # Görev #2. id'sine göre doğru kartı göster
     
 
     return render_template('card.html', card=card)
 
-# Running the page and creating the card
+# Sayfayı çalıştırma ve kart oluşturma
 @app.route('/create')
 def create():
     return render_template('create_card.html')
 
-# The card form
+# Kart formu
 @app.route('/form_create', methods=['GET','POST'])
 def form_create():
     if request.method == 'POST':
@@ -56,7 +47,7 @@ def form_create():
         subtitle =  request.form['subtitle']
         text =  request.form['text']
 
-        # Assignment #2. Create a way to store data in the DB
+        # Görev #2. Veri tabanında bilgiyi depolamanın bir yolunu bul!
         
 
 
